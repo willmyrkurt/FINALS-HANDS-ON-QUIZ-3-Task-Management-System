@@ -3,21 +3,19 @@ import { useEffect, useState } from "react";
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 function App() {
-
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
 
   // Fetch Tasks
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/tasks/")
+    fetch(`${API_URL}/tasks/`)  // ✅ Use API_URL variable
       .then((response) => response.json())
       .then((data) => setTasks(data));
   }, []);
 
   // Add Task
   const addTask = () => {
-
-    fetch("http://127.0.0.1:8000/api/tasks/", {
+    fetch(`${API_URL}/tasks/`, {  // ✅ Use API_URL variable
       method: "POST",
       headers: {
         "Content-Type": "application/json",
