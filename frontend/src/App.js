@@ -8,14 +8,14 @@ function App() {
 
   // Fetch Tasks
   useEffect(() => {
-    fetch(`${API_URL}/tasks/`)  // ✅ Use API_URL variable
+    fetch(`${API_URL}/tasks/`) 
       .then((response) => response.json())
       .then((data) => setTasks(data));
   }, []);
 
   // Add Task
   const addTask = () => {
-    fetch(`${API_URL}/tasks/`, {  // ✅ Use API_URL variable
+    fetch(`${API_URL}/tasks/`, {  
       method: "POST",
       headers: {
         "Content-Type": "application/json",
